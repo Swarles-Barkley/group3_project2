@@ -17,7 +17,7 @@ function placeShip() {
    //var menuId = $( "ul.nav" ).first().attr( "id" );
    var request = $.ajax({
      url: "/placeShip/"+$( "#shipSelec" ).val()+"/"+$( "#rowSelec" ).val()+"/"+$( "#colSelec" ).val()+"/"+$( "#orientationSelec" ).val(),
-     method: "post",
+     method: "post",//file:/usr/share/doc/HTML/index.html
      data: JSON.stringify(gameModel),
      contentType: "application/json; charset=utf-8",
      dataType: "json"
@@ -37,12 +37,38 @@ function placeShip() {
 
 
 
-function fire(){
- console.log($( "#colFire" ).val());
-   console.log($( "#rowFire" ).val());
+function fire(x, y){
+ //console.log($( "#colFire" ).val());
+   //console.log($( "#rowFire" ).val());
+
+//var menuId = $( "ul.nav" ).first().attr( "id" );
+
+   var request = $.ajax({
+     url: "/fire/" + x + "/" + y,
+     method: "post",
+     data: JSON.stringify(gameModel),
+     contentType: "application/json; charset=utf-8",
+     dataType: "json"
+   });
+
+   request.done(function( currModel ) {
+     displayGameState(currModel);
+     gameModel = currModel;
+
+   });
+
+   request.fail(function( jqXHR, textStatus ) {
+     alert( "Request failed: " + textStatus );
+   });
+
+}
+
+function scan(x,y){
+ //console.log($( "#colScan" ).val());
+   //console.log($( "#rowScan" ).val());
 //var menuId = $( "ul.nav" ).first().attr( "id" );
    var request = $.ajax({
-     url: "/fire/"+$( "#colFire" ).val()+"/"+$( "#rowFire" ).val(),
+     url: "/scan/" + x + "/" + y,
      method: "post",
      data: JSON.stringify(gameModel),
      contentType: "application/json; charset=utf-8",
@@ -60,31 +86,20 @@ function fire(){
    });
 
 }
+//IMPORTANT: resolveTileClick() requires scanfire html checkbox (W3schools has a good example of how to turn the checkbox to a slider)
 
-function scan(){
- console.log($( "#colScan" ).val());
-   console.log($( "#rowScan" ).val());
-//var menuId = $( "ul.nav" ).first().attr( "id" );
-   var request = $.ajax({
-     url: "/scan/"+$( "#colScan" ).val()+"/"+$( "#rowScan" ).val(),
-     method: "post",
-     data: JSON.stringify(gameModel),
-     contentType: "application/json; charset=utf-8",
-     dataType: "json"
-   });
-
-   request.done(function( currModel ) {
-     displayGameState(currModel);
-     gameModel = currModel;
-
-   });
-
-   request.fail(function( jqXHR, textStatus ) {
-     alert( "Request failed: " + textStatus );
-   });
-
+//Function called by click on any tile, checks for scan or fire option, then parses html id for x,y coordinates and calls apt. fct.
+function resolveTileClick(btnId){
+    var isFire = document.getElementById("scanfire").checked;
+    var numSep = btnId.indexOf("_");
+    var x = btnId.substring(0,numSep);
+    var y = btnId.substring(numSep+1);
+    if(isFire){
+        fire(x,y);
+    } else {
+        scan(x,y);
+    }
 }
-
 
 function log(logContents){
     console.log(logContents);
@@ -94,9 +109,9 @@ function displayGameState(gameModel){
 $( '#MyBoard td'  ).css("background-color", "blue");
 $( '#TheirBoard td'  ).css("background-color", "blue");
 
-if(gameModel.scanResult){
+if(gameModel.scanResult && gameModel.scanRequest){
 alert("Scan found at least one Ship")}
-else{
+else if(gameModel.scanRequest){
 alert("Scan found no Ships")}
 
 displayShip(gameModel.aircraftCarrier);

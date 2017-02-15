@@ -27,7 +27,7 @@ public class BattleshipModel {
     private ArrayList<Coordinate> computerMisses;
 
     boolean scanResult = false;
-
+    boolean scanRequest = false;
 
 
     public BattleshipModel() {
@@ -83,6 +83,7 @@ public class BattleshipModel {
                     this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint + 2, colInt));
                 }
         }
+        this.scanRequest = false;
         return this;
     }
 
@@ -101,6 +102,7 @@ public class BattleshipModel {
         } else {
             computerMisses.add(coor);
         }
+        this.scanRequest = false;
     }
 
     public void shootAtPlayer() {
@@ -152,6 +154,7 @@ public class BattleshipModel {
         } else {
             scanResult = false;
         }
+        scanRequest = true;
     }
 
     public boolean getScanResult() {
