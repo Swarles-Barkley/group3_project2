@@ -13,28 +13,45 @@ background-color: light-gray;
 .gameBoard td {
 width: 40px;
 height:40px;
-background-color:blue;
+background-color:#B0C4DE;
 }
 
 table, th, td {
    border: 1px solid black;
 }
 
+#leftheader {
+    float: left;
+}
+
+#rightheader {
+    float: right;
+}
+
 #MyBoard .ship{
 background-color: orange;
 }
 
-/*
+h1 {
+  color: #808000;
+  font-size: 300%;
+}
+
+h3 {
+  color: #808000;
+  font-size: 100%;
+}
+
 button {
-    margin: 0;
-    padding: 0;
+    margin: 5px;
+    padding: 1px;
     border: 0;
-    background: none;
+    background: #808000;
     font-size: 100%;
     vertical-align: baseline;
     font-family: inherit;
     font-weight: inherit;
-    color: inherit;
+    color: #FFFFE0;
     -webkit-appearance: none;
     appearance: none;
     -webkit-font-smoothing: antialiased;
@@ -42,6 +59,18 @@ button {
     font-smoothing: antialiased;
 }
 
+#miniMap td {
+    float: left;
+    width:10px;
+    height: 10px;
+}
+
+#largeMap {
+    float:center;
+}
+
+
+/*
 body {
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.4em;
