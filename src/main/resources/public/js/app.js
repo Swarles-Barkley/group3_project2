@@ -15,15 +15,15 @@ $( document ).ready(function() {
             function closeNav() {
                 document.getElementById("myNav").style.height = "0%";
             }
-function placeShip() {
+function placeShip(x,y) {
    console.log($( "#shipSelec" ).val());
-   console.log($( "#rowSelec" ).val());
-   console.log($( "#colSelec" ).val());
+//   console.log($( "#rowSelec" ).val());
+//   console.log($( "#colSelec" ).val());
    console.log($( "#orientationSelec" ).val());
 
    //var menuId = $( "ul.nav" ).first().attr( "id" );
    var request = $.ajax({
-     url: "/placeShip/"+$( "#shipSelec" ).val()+"/"+$( "#rowSelec" ).val()+"/"+$( "#colSelec" ).val()+"/"+$( "#orientationSelec" ).val(),
+     url: "/placeShip/"+$( "#shipSelec" ).val()+"/"+ x +"/"+ y +"/"+$( "#orientationSelec" ).val(),
      method: "post",//file:/usr/share/doc/HTML/index.html
      data: JSON.stringify(gameModel),
      contentType: "application/json; charset=utf-8",
@@ -106,6 +106,13 @@ function resolveTileClick(btnId){
     } else {
         scan(x,y);
     }
+}
+
+function placeShipOnClick(btnId){
+    var numSep = btnId.indexOf("_");
+    var x = btnId.substring(0,numSep);
+    var y = btnId.substring(numSep+1);
+    placeShip(x,y);
 }
 
 function log(logContents){
