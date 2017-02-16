@@ -17,7 +17,7 @@ background-color:#B0C4DE;
 }
 
 table, th, td {
-   border: 1px solid black;
+   /*border: 1px solid black;*/
 }
 
 #leftheader {
@@ -59,16 +59,58 @@ button {
     font-smoothing: antialiased;
 }
 
+#miniMap {
+    top: 0;
+    display: inline-block;
+    width: 20%
+}
+
 #miniMap td {
-    float: left;
     width:10px;
     height: 10px;
 }
 
 #largeMap {
-    float:center;
+    display: inline-block;
+    margin: 10px;
+    width: 50%;
 }
 
+#key {
+    position: relative;
+    top: 0;
+    display: inline-block;
+    width: 20%;
+    height: 110px;
+}
+
+#water {
+    background: #B0C4DE;
+    width:20px;
+    height:10px;
+}
+
+#waterHit {
+    background: #228B22;
+    width:20px;
+    height:10px;
+}
+
+#waterMiss {
+    background: #B22222;
+    width:20px;
+    height:10px;
+}
+
+#waterShip {
+    background: #D3D3D3;
+    width:20px;
+    height:10px;
+}
+
+footer {
+  bottom: 0;
+}
 
 /*
 body {
