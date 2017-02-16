@@ -47,6 +47,19 @@ h2 {
     cursor: pointer;
 }
 
+.button2 {
+    background-color: green;
+    border: solid;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
 .overlay {
     height: 0;
     width: 100%;
@@ -96,6 +109,24 @@ h2 {
     right: 35px;
   }
 }
+
+.centerPlayerBoard
+{
+    display:inline-block;
+}
+
+.shipSelectionOnSide
+{
+    display:inline-block;
+    margin-right:0;
+    position:absolute;
+
+}
+
+.orientationUnderneath
+{
+    display:block;
+    }
 </style>
 </head>
 
@@ -120,27 +151,11 @@ h2 {
         <div class="overlay-content">
 
 
-            <h2>Place Ships</h2>
-            <div id="AircraftcarrierDiv" style="color:white">
-                Ship:
-                <select name="shipSelec" id="shipSelec" size="6" class="bloc">
-                    <option value="aircraftCarrier" class="button" selected>Aircraft Carrier</option>
-                    <option value="battleship" class="button">Battleship</option>
-                    <option value="cruiser" class="button">Cruiser</option>
-                    <option value="destroyer" class="button">Destroyer</option>
-                    <option value="submarine" class="button">Submarine</option>
-                </select>
 
-                Orientation:
-                <select name="orientationSelec" id="orientationSelec" size="3" class="bloc">
-                    <option value="horizontal" class="button" selected>horizontal</option>
-                    <option value="vertical" class="button">vertical</option>
-                </select>
-                <button type="button" onclick="placeShip()">Place</button>
-            </div>
 
-            <h2>Yours</h2>
-            <div align="center" id="MyBoard" class="gameBoard">
+            <h2 align="center">Place Your Ships</h2>
+            <div class="centerPlayerBoard" align="center">
+            <div  id="MyBoard" class="gameBoard">
                 <table>
                     <tr id="My_Row_1">
                         <td id="1_1"  class="{{1_1}}" onclick="placeShipOnClick(this.id)"></td>
@@ -264,7 +279,25 @@ h2 {
                     </tr>
                 </table>
             </div>
+            </div>
+            <div class="shipSelectionOnSide">
+                <select name="shipSelec" id="shipSelec" size="6" class="bloc">
+                    <option value="aircraftCarrier" class="button" selected>Aircraft Carrier</option>
+                    <option value="battleship" class="button">Battleship</option>
+                    <option value="cruiser" class="button">Cruiser</option>
+                    <option value="destroyer" class="button">Destroyer</option>
+                    <option value="submarine" class="button">Submarine</option>
+                </select>
         </div>
+        <div class="'oreientationUnderneath" align="center">
+        <select name="orientationSelec" id="orientationSelec" size="3" class="bloc">
+            <option value="horizontal" class="button2" selected>horizontal</option>
+            <option value="vertical" class="button2">vertical</option>
+        </select>
+        </div>
+        </div>
+        </div>
+
     </div>
     <BR><BR><BR>
     <H1>Theirs</H1>
