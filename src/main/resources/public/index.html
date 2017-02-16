@@ -1,161 +1,36 @@
 <!doctype html>
 <html lang="en" data-framework="intercoolerjs">
-<head>
+<HEAD>
     <meta charset="utf-8">
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 
-    <style>
 
-.bloc
-{
-display:inline-block;
-vertical-align:top;
-overflow:hidden;
-border:transparent;
-outline:none;
-grey 1px;
-background-color: transparent;
-}
-
-.bloc select
-{
-padding:10px;
-margin:-5px -20px -5px -5px;
-}
-
-body {
-    margin: 0;
-    font-family: 'Lato', sans-serif;
-}
-
-h2 {
-    color: white;
-}
-
-.button {
-    background-color: green;
-    border: solid;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-.button2 {
-    background-color: green;
-    border: solid;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-.overlay {
-    height: 0;
-    width: 100%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.9);
-    overflow-x: hidden;
-    transition: 0.5s;
-}
-
-.overlay-content {
-    position: relative;
-    top: 25%;
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-}
-
-.overlay a {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 36px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.overlay a:hover, .overlay a:focus {
-    color: #f1f1f1;
-}
-
-.overlay .closebtn {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
-}
-
-@media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
-}
-
-.centerPlayerBoard
-{
-    display:inline-block;
-}
-
-.shipSelectionOnSide
-{
-    display:inline-block;
-    margin-right:0;
-    position:absolute;
-
-}
-
-.orientationUnderneath
-{
-    display:block;
-    }
-</style>
-</head>
+</HEAD>
 
 <script src="/js/vendor/jquery-1.12.4.min.js"></script>
 <script src="/js/app.js"></script>
 
-<body onload="openNav()">
 
-
-
-
-
-
-
-
+<!--Body opens placeShipOverlay upon page loading-->
+<BODY onload="openNav()">
 
 <section id="todoapp" ic-target="this">
     <!--#parse("/velocity/todoList.vm")-->
-    <div id="myNav" class="overlay">
+    <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; open</span>
+
+    <!--This is the placeShipOverlay container-->
+    <div id="myNav" class="placeShipOverlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; open</span>
-        <div class="overlay-content">
 
-
-
-
+        <!--This container positions all the items in the placeShipsOverlay-->
+        <div class="placeShipOverlay-content">
             <h2 align="center">Place Your Ships</h2>
+
+            <!--This container builds the player board in the center of the scrren-->
             <div class="centerPlayerBoard" align="center">
-            <div  id="MyBoard" class="gameBoard">
+                <div  id="MyBoard" class="gameBoard">
                 <table>
                     <tr id="My_Row_1">
                         <td id="1_1"  class="{{1_1}}" onclick="placeShipOnClick(this.id)"></td>
@@ -280,26 +155,28 @@ h2 {
                 </table>
             </div>
             </div>
-            <div class="shipSelectionOnSide">
-                <select name="shipSelec" id="shipSelec" size="6" class="bloc">
-                    <option value="aircraftCarrier" class="button" selected>Aircraft Carrier</option>
-                    <option value="battleship" class="button">Battleship</option>
-                    <option value="cruiser" class="button">Cruiser</option>
-                    <option value="destroyer" class="button">Destroyer</option>
-                    <option value="submarine" class="button">Submarine</option>
-                </select>
-        </div>
-        <div class="'oreientationUnderneath" align="center">
-        <select name="orientationSelec" id="orientationSelec" size="3" class="bloc">
-            <option value="horizontal" class="button2" selected>horizontal</option>
-            <option value="vertical" class="button2">vertical</option>
-        </select>
-        </div>
-        </div>
-        </div>
 
+            <!--This container builds the ship selection buttons on the side of the player board-->
+            <div class="shipSelectionOnSide">
+                <select name="shipSelec" id="shipSelec" size="6" class="selectionBoxDesign">
+                    <option value="aircraftCarrier" class="shipSelectButton" selected>Aircraft Carrier</option>
+                    <option value="battleship" class="shipSelectButton">Battleship</option>
+                    <option value="cruiser" class="shipSelectButton">Cruiser</option>
+                    <option value="destroyer" class="shipSelectButton">Destroyer</option>
+                    <option value="submarine" class="shipSelectButton">Submarine</option>
+                </select>
+            </div>
+
+            <!--This container builds the orientation selection buttons underneath the player board-->
+            <div class="'oreientationUnderneath" align="center">
+                <select name="orientationSelec" id="orientationSelec" size="3" class="selectionBoxDesign">
+                    <option value="horizontal" class="orientationButton" selected>horizontal</option>
+                    <option value="vertical" class="orientationButton">vertical</option>
+                </select>
+            </div>
+        </div>
     </div>
-    <BR><BR><BR>
+
     <H1>Theirs</H1>
     <div id="TheirBoard" class="gameBoard">
         <table>
@@ -426,7 +303,6 @@ h2 {
         </table>
     </div>
 
-
     <!-- unchecked (false) for scan or checked (true) for fire. We should clarify this with css later IMO -->
 
     <h1> Scan or fire </h1>
@@ -437,7 +313,7 @@ h2 {
 
 
 </section>
-</body>
+</BODY>
 <script>
    $('#TheirBoard td').click(function(event) {
    console.log("CLICK EVENT");
