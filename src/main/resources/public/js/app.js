@@ -120,8 +120,8 @@ function log(logContents){
 }
 
 function displayGameState(gameModel){
-$( '#MyBoard td'  ).css("background-color", "blue");
-$( '#TheirBoard td'  ).css("background-color", "blue");
+$( '#MyBoard td'  ).css("background-color", "#B0C4DE");
+$( '#TheirBoard td'  ).css("background-color", "#B0C4DE");
 
 if(gameModel.scanResult && gameModel.scanRequest){
 alert("Scan found at least one Ship")}

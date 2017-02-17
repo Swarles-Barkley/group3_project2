@@ -5,23 +5,49 @@ body {
 }
 
 .gameBoard{
-/*with:100px;
-height:100px;*/
+/*with:300px;
+height:300px;*/
 background-color: light-gray;
 }
 
 .gameBoard td {
 width: 40px;
-height:40px;
-background-color:blue;
+height: 35px;
+background-color:#B0C4DE;
 }
 
 table, th, td {
-   border: 1px solid black;
+   /*border: 1px solid black;*/
+}
+
+#leftheader {
+    float: left;
+}
+#middleheader {
+    position: fixed;
+    top: 10px;
+    left: 300px;
+}
+#rightheader {
+    float: right;
 }
 
 #MyBoard .ship{
-background-color: orange;
+background-color: #808000;
+}
+
+h1 {
+  color: #808000;
+  font-size: 300%;
+}
+
+h2 {
+    color: white;
+}
+
+h3 {
+  color: #808000;
+  font-size: 100%;
 }
 
 .selectionBoxDesign {
@@ -32,10 +58,6 @@ border:transparent;
 outline:none;
 grey 1px;
 background-color: transparent;
-}
-
-h2 {
-    color: white;
 }
 
 .shipSelectButton {
@@ -124,20 +146,16 @@ h2 {
     display:block;
     }
 
-
-
-
-/*
 button {
-    margin: 0;
-    padding: 0;
+    margin: 5px;
+    padding: 1px;
     border: 0;
-    background: none;
+    background: #808000;
     font-size: 100%;
     vertical-align: baseline;
     font-family: inherit;
     font-weight: inherit;
-    color: inherit;
+    color: #FFFFE0;
     -webkit-appearance: none;
     appearance: none;
     -webkit-font-smoothing: antialiased;
@@ -145,6 +163,68 @@ button {
     font-smoothing: antialiased;
 }
 
+#miniMap {
+    position: fixed;
+    top: 105px;
+    left: 30px;
+    width: 20%;
+    height: 110px;
+}
+
+#miniMap td {
+    width: 10px;
+    height: 10px;
+}
+
+#largeMap {
+    position: fixed;
+    top: 110px;
+    left: 200px;
+    display: inline-block;
+    margin: 10px;
+    width: 50%;
+}
+
+#key {
+    position: fixed;
+    top: 105px;
+    left: 700px;
+    display: inline-block;
+    width: 20%;
+    height: 110px;
+}
+
+#water {
+    background: #B0C4DE;
+    width:20px;
+    height:10px;
+}
+
+#waterHit {
+    background: red;
+    width:20px;
+    height:10px;
+}
+
+#waterMiss {
+    background: green;
+    width:20px;
+    height:10px;
+}
+
+#waterShip {
+    background: #D3D3D3;
+    width:20px;
+    height:10px;
+}
+
+footer {
+  bottom: 0;
+  left: 300px;
+  position: absolute;
+}
+
+/*
 body {
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.4em;
