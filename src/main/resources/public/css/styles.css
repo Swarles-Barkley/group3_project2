@@ -21,9 +21,11 @@ table, th, td {
 }
 
 #leftheader {
-    float: left;
+    position: fixed;
     top: 30px;
+    left: 10px;
 }
+
 #middleheader {
     position: fixed;
     top: 10px;
@@ -118,6 +120,35 @@ background-color: transparent;
     transition: 0.3s;
 }
 
+.duckAndCoverOverlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #00ff99;
+    display: block;
+    transition: 0.3s;
+}
+
+.duckAndCoverOverlay {
+    height: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,3,40);
+    background-color: rgba(0,0,0F, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.duckAndCoverOverlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
 .placeShipOverlay .closebtn {
     position: absolute;
     top: 20px;
@@ -131,6 +162,12 @@ background-color: transparent;
     font-size: 40px;
     top: 15px;
     right: 35px;
+  }
+  .duckAndCoverOverlay a {font-size: 20px}
+    .duckAndCoverOverlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
   }
 }
 
@@ -164,6 +201,7 @@ button {
     -moz-font-smoothing: antialiased;
     font-smoothing: antialiased;
 }
+
 
 #miniMap {
     position: fixed;
