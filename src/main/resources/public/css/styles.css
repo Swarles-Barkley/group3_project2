@@ -22,6 +22,7 @@ table, th, td {
 
 #leftheader {
     float: left;
+    top: 30px;
 }
 #middleheader {
     position: fixed;
@@ -31,6 +32,7 @@ table, th, td {
 #rightheader {
     float: right;
 }
+
 
 #MyBoard .ship{
 background-color: #808000;
