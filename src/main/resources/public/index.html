@@ -446,8 +446,13 @@
                         </tr>
                     </table>
                 </div>
-        </td>
-
+                <div class = "orientationUnderneath" align = "center">
+                    <h3 id = "scanfirehdg"> Scan or fire </h3>
+                    <label class="switch">
+                        <input type="checkbox" name="scanfire" id="scanfire">
+                        <div class="slider"></div>
+                    </label>
+                </div>
         <td id="key">
             <h3>Map Key</h3>
             <table>
@@ -474,11 +479,7 @@
 
 <!-- unchecked (false) for scan or checked (true) for fire. We should clarify this with css later IMO-->
 <footer>
-    <h1 align="center"> Scan or fire </h1>
-    <label class="switch">
-        <input type="checkbox" name="scanfire" id="scanfire">
-        <div class="slider"></div>
-    </label>
+
 
     <form>
         <input type="button" value="New Game"
