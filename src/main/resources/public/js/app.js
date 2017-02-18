@@ -15,6 +15,14 @@ $( document ).ready(function() {
             function closeNav() {
                 document.getElementById("myNav").style.height = "0%";
             }
+
+            function openDuckAndCoverNav() {
+                            document.getElementById("DAC_Nav").style.height = "100%";
+                        }
+            function closeDuckAndCoverNav() {
+                            document.getElementById("DAC_Nav").style.height = "0%";
+                        }
+
 function placeShip(x,y) {
    console.log($( "#shipSelec" ).val());
 //   console.log($( "#rowSelec" ).val());
