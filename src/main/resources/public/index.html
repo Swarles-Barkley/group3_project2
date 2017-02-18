@@ -16,8 +16,16 @@
     <!--#parse("/velocity/todoList.vm")-->
     <div id="rightheader">
         <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; open</span>
-        <button type="button" onclick="placeShip()">New Game</button>
+
     </div>
+
+
+
+    <div id="DAC_Nav" class="duckAndCoverOverlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeDuckAndCoverNav()">&times;</a>
+        <img src="https://i.ytimg.com/vi/4AmM5Emyjps/maxresdefault.jpg"/>
+    </div>
+
 
     <!--This is the placeShipOverlay container-->
     <div id="myNav" class="placeShipOverlay">
@@ -178,7 +186,14 @@
 </section>
 
 <div id="leftheader">
-    <button type="button" onclick="placeShip()">Duck and Cover</button>
+    <form>
+        <input type="button" value="New Game"
+               onclick="window.location.href='/'" />
+    </form>
+    <br>
+    <form id="duckandcoverbutton">
+        <input type="button" onclick="openDuckAndCoverNav()" value = "Duck and Cover!!"></input>
+    </form>
 </div>
 
 <div id="middleheader">
@@ -480,10 +495,7 @@
         <div class="slider"></div>
     </label>
 
-    <form>
-        <input type="button" value="New Game"
-               onclick="window.location.href='/'" />
-    </form>
+
 
 
 
